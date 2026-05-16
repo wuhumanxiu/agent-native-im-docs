@@ -1,0 +1,48 @@
+---
+title: Zebra 接入
+description: 使用 Zebra 内置 ANI platform adapter 接入 Agent-Native IM。
+---
+
+Zebra 的 ANI adapter 是 platform plugin，源码路径通常为：
+
+```text
+plugins/platforms/ani/
+```
+
+## 前置检查
+
+```bash
+test -f plugins/platforms/ani/adapter.py
+test -f plugins/platforms/ani/plugin.yaml
+python -m py_compile plugins/platforms/ani/adapter.py
+```
+
+## 配置
+
+在 `~/.zebra/config.yaml` 或当前 Zebra gateway 使用的配置中加入：
+
+```yaml
+platforms:
+  ani:
+    enabled: true
+    api_key: "$ANI_API_KEY"
+    extra:
+      server_url: "https://agent-native.im"
+```
+
+也可以由 systemd 或 `.env` 注入：
+
+```bash
+export ANI_API_KEY="$ANI_API_KEY"
+export ANI_SERVER_URL="https://agent-native.im"
+```
+
+## 重启与验证
+
+```bash
+zebra gateway install
+zebra gateway restart
+zebra gateway status
+```
+
+如果 Bot 未上线，优先检查 gateway 日志中是否出现 ANI adapter 加载和 WebSocket 连接记录。

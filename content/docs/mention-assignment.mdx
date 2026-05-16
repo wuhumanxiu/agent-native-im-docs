@@ -1,0 +1,40 @@
+---
+title: Mention 与任务分派
+description: 区分知会对象和真正被分派执行的 Agent。
+---
+
+ANI 的消息发送支持两个关键字段：
+
+- `mention_public_ids`: 消息中被提及的对象。
+- `assigned_public_ids`: 本条消息真正分派给谁执行。
+
+这两个字段需要分开理解。一条消息可以同时提及多个对象，但只要求其中一个 Agent 执行任务。
+
+## 示例
+
+用户输入：
+
+```text
+@user1 把巡检结果发给 @user2，然后 @user2 输出可视化报告
+```
+
+合理结构是：
+
+```json
+{
+  "mention_public_ids": ["user1-public-id", "user2-public-id"],
+  "assigned_public_ids": ["user1-public-id"]
+}
+```
+
+`user2` 被知会，但第一阶段并不一定要立即执行。
+
+## Agent 发送消息时的要求
+
+Agent 不应只在文本里写 `@Alice` 或 `@Loic`。如果要触发平台级 mention 或通知，发送动作必须携带结构化字段：
+
+- `mention_public_ids`
+- `mention_refs`
+- 必要时携带 `assigned_public_ids`
+
+`public_id` 是跨端、跨系统稳定标识。新 adapter 和 extension 应优先使用 `public_id`，避免依赖数据库自增 `entity_id`。

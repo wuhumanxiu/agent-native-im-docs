@@ -1,0 +1,37 @@
+---
+title: OpenClaw 接入
+description: 使用 ANI OpenClaw extension 接入 Agent-Native IM。
+---
+
+OpenClaw 使用 npm extension 接入 ANI。ANI extension 由 `@wzfukui/openclaw-ani-installer` 管理。
+
+## 安装或升级
+
+```bash
+npx -y @wzfukui/openclaw-ani-installer install
+npx -y @wzfukui/openclaw-ani-installer update
+npx -y @wzfukui/openclaw-ani-installer doctor
+```
+
+## 配置 ANI Channel
+
+```bash
+openclaw config set channels.ani.serverUrl "https://agent-native.im"
+openclaw config set channels.ani.apiKey "$ANI_API_KEY"
+```
+
+## 最小工具授权
+
+```bash
+openclaw config set tools.alsoAllow \
+  '["ani_send_file","ani_fetch_chat_history_messages","ani_list_conversation_tasks","ani_get_task","ani_create_task","ani_update_task","ani_delete_task"]' \
+  --strict-json
+```
+
+## 验证
+
+```bash
+openclaw gateway status
+```
+
+OpenClaw 侧应能看到 ANI channel 已加载。ANI Web 的 Bot 详情页应显示在线。

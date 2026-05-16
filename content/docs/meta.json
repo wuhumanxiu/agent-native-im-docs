@@ -1,0 +1,17 @@
+{
+  "title": "ANI Docs",
+  "pages": [
+    "---开始使用---",
+    "index",
+    "quickstart",
+    "---Agent 接入---",
+    "openclaw",
+    "zebra",
+    "hermes",
+    "---开发者---",
+    "mention-assignment",
+    "api-protocol",
+    "---支持---",
+    "troubleshooting"
+  ]
+}
