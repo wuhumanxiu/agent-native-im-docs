@@ -7,6 +7,7 @@ import {
   DocsPage,
   DocsTitle,
 } from 'fumadocs-ui/page';
+import { docsSnapshot } from '@/lib/docs-version';
 import { source } from '@/lib/source';
 
 type DocMeta = {
@@ -35,10 +36,22 @@ export default async function Page(props: {
       <div className="docs-meta-row">
         <span>{meta.category ?? '开始使用'}</span>
         <span className="docs-meta-separator" />
-        <span>{meta.updated ?? '2026 年 5 月更新'}</span>
+        <span>{meta.updated ?? docsSnapshot.updatedDisplay}</span>
         <span className="docs-meta-separator" />
         <span>{meta.readingTime ?? '阅读约 6 分钟'}</span>
       </div>
+      <section className="docs-snapshot-card" aria-label="Documentation version">
+        <div>
+          <p className="docs-snapshot-eyebrow">DOCUMENT SNAPSHOT</p>
+          <p className="docs-snapshot-title">
+            本文档基于 {docsSnapshot.label} 编写，最后更新时间：
+            {docsSnapshot.updatedAt}
+          </p>
+        </div>
+        <a className="docs-snapshot-link" href="/docs/changelog">
+          查看更新说明
+        </a>
+      </section>
       <DocsBody>
         <MDX components={defaultMdxComponents} />
       </DocsBody>
