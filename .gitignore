@@ -3,6 +3,7 @@ node_modules/
 .source/
 out/
 dist/
+*.tsbuildinfo
 .env
 .env.*
 !.env.example
