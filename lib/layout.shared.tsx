@@ -14,7 +14,7 @@ export function baseOptions(): BaseLayoutProps {
       },
       {
         text: 'GitHub',
-        url: 'https://github.com/wzfukui/agent-native-im',
+        url: 'https://github.com/wuhumanxiu/agent-native-im',
         active: 'none',
       },
     ],
