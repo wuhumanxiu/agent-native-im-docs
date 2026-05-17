@@ -21,12 +21,12 @@ May 16, 2026
 
 | 组件 | 仓库 | Commit | 说明 |
 | --- | --- | --- | --- |
-| ANI Backend | `agent-native-im` | `ceded2f` | 多语言 release notes 与 release 系统通知 |
-| ANI Web | `agent-native-im-web` | `5948361` | Web 端多语言 release 通知展示 |
-| ANI Mobile | `agent-native-im-mobile` | `9122357` | 移动端群成员操作使用 public id |
-| OpenClaw ANI Installer | `openclaw-ani-installer` | `3867d83` | 安装器版本 `2026.5.15` |
-| Zebra ANI Adapter | `zebra-agent` | `98a648f0f` | Runtime device 信息上报 |
-| Hermes ANI Adapter | `hermes-ani-adapter` | `89539f1` | Runtime device 信息上报 |
+| ANI Backend | [`wuhumanxiu/agent-native-im`](https://github.com/wuhumanxiu/agent-native-im) | `ceded2f` | 多语言 release notes 与 release 系统通知 |
+| ANI Web | [`wuhumanxiu/agent-native-im-web`](https://github.com/wuhumanxiu/agent-native-im-web) | `5948361` | Web 端多语言 release 通知展示 |
+| ANI Mobile | [`wuhumanxiu/agent-native-im-mobile`](https://github.com/wuhumanxiu/agent-native-im-mobile) | `9122357` | 移动端群成员操作使用 public id |
+| OpenClaw ANI Installer | [`wuhumanxiu/openclaw-ani-installer`](https://github.com/wuhumanxiu/openclaw-ani-installer) / [`@wuhumanxiu/openclaw-ani-installer`](https://www.npmjs.com/package/@wuhumanxiu/openclaw-ani-installer) | `3867d83` | 安装器版本 `2026.5.15` |
+| Zebra ANI Adapter | [`wuhumanxiu/zebra-agent`](https://github.com/wuhumanxiu/zebra-agent) | `98a648f0f` | Runtime device 信息上报 |
+| Hermes ANI Adapter | [`wuhumanxiu/hermes-ani-adapter`](https://github.com/wuhumanxiu/hermes-ani-adapter) | `89539f1` | Runtime device 信息上报 |
 
 ### New Features
 
@@ -44,12 +44,12 @@ May 16, 2026
 
 ### Agent Integration Notes
 
-- OpenClaw 插件现在按独立 npm/installer 方式维护，不再依赖向 OpenClaw 官方仓库提交 channel PR。
+- OpenClaw 插件现在按独立 [`@wuhumanxiu/openclaw-ani-installer`](https://www.npmjs.com/package/@wuhumanxiu/openclaw-ani-installer) 方式维护，不再依赖向 OpenClaw 官方仓库提交 channel PR。
 - Zebra 的 ANI adapter 随 Zebra 项目分发。
-- Hermes 的 ANI adapter 作为独立 adapter 项目维护。
+- Hermes 的 ANI adapter 作为独立 [`wuhumanxiu/hermes-ani-adapter`](https://github.com/wuhumanxiu/hermes-ani-adapter) 项目维护。
 - 新接入方应优先使用 `public_id` / UUID，不应依赖数据库自增 `entity_id`。
 
 ### Known Follow-ups
 
-- SDK 文档仍需要在 `ani-agent-sdk-python` 与 `ani-agent-sdk-js` 稳定后补齐。
+- SDK 文档仍需要在 [`wuhumanxiu/ani-agent-sdk-python`](https://github.com/wuhumanxiu/ani-agent-sdk-python) 与 [`wuhumanxiu/ani-agent-sdk-js`](https://github.com/wuhumanxiu/ani-agent-sdk-js) 稳定后补齐。
 - 后续 release 应继续在本页面补充版本说明，并同步更新页面顶部文档快照。
